@@ -8,20 +8,11 @@ const btnEl = formEl.querySelector("button");
 
 formEl.addEventListener("submit",  onFormPromiceCreate)
 
-// function onFormPromiceCreate(event) {
-//   event.preventDefault();
-//   console.log(firstDelayEl.value);
-//   console.log(stepEl.value);
-//   console.log(amountEl.value);
-// }
-
-
-
 function onFormPromiceCreate(evt){
   evt.preventDefault();
   let position = 0;
   let delay = Number(firstDelayEl.value);
-  for(i=0; i < Number(amountEl.value); i +=1) {
+  for(let i=0; i < Number(amountEl.value); i +=1) {
     delay +=  Number(stepEl.value);
      position += 1;
     createPromise(position, delay).then(({ position, delay }) => {
