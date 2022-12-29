@@ -70,4 +70,4 @@ function convertMs(ms) {
 
 // For BackgroundAnimation add class
 bodyEl.classList.add("bg-animation")
-bodyEl.classList.backgroundColor = "#385353"
+bodyEl.style.backgroundColor = "#385353"
