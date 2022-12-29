@@ -39,3 +39,53 @@ img {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+/* // BackgroundAnimation */
+
+
+@keyframes animatedBackground {
+  0 {
+      background-position: 0 0
+  }
+  100% {
+      background-position: -150px 600px 
+  }
+}
+
+@-moz-keyframes animatedBackground {
+  0 {
+      background-position: 0 0
+  }
+  100% {
+      background-position: -150px 600px
+  }
+}
+
+@-webkit-keyframes animatedBackground {
+  0 {
+      background-position: 0 0
+  }
+  100% {
+      background-position: -150px 600px
+  }
+}
+
+@-o-keyframes animatedBackground {
+  0 {
+      background-position: 0 0
+  }
+  100% {
+      background-position: -150px 600px
+  }
+}
+
+.bg-animation{
+  background-color: #385353;
+  background-size: 1500px;
+background-image: url(https://www.pngall.com/wp-content/uploads/2016/03/Stars-PNG-Clipart.png);;
+animation: animatedBackground 60s linear infinite;
+-moz-animation: animatedBackground 60s linear infinite;
+-webkit-animation: animatedBackground 60s linear infinite;
+ -o-animation: animatedBackground 60s linear infinite;
+
+}

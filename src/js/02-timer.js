@@ -1,18 +1,16 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
+import { getRandomHexColor } from "./01-color-switcher"
 
-function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
-
+const bodyEl = document.querySelector("body");
 const timeInput = document.querySelector("#datetime-picker");
 const btnStartEl = document.querySelector("[data-start]");
 const dataDaysEl = document.querySelector("[data-days]");
 const dataHoursEl = document.querySelector("[data-hours]");
 const dataMinutesEl = document.querySelector("[data-minutes]");
 const dataSecondsEl = document.querySelector("[data-seconds]");
-const bodyEl = document.querySelector("body");
+
 btnStartEl.setAttribute("disabled", "")
 
 
@@ -22,31 +20,27 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    //   console.log(selectedDates[0]);
+      console.log(selectedDates[0]);
       if (selectedDates[0]  - options.defaultDate < 0) { 
        Notiflix.Notify.failure("Please choose a date in the future");
        btnStartEl.setAttribute("disabled", "");}
       else if (selectedDates[0] - options.defaultDate > 0) { btnStartEl.removeAttribute("disabled");
-       console.log("hello");
-       btnStartEl.addEventListener("click", onTimerCount);
+      btnStartEl.addEventListener("click", onTimerCount);
        function onTimerCount(){
-        console.log("timer");
-        setInterval(()=>{const ms = selectedDates[0] - Date.now();
+         setInterval(()=>{const ms = selectedDates[0] - Date.now();
             if(ms < 0){return}
-            console.log(ms);
-            const deltatime = convertMs(ms)
-            console.log(deltatime );
-            dataDaysEl.textContent = deltatime.days;
-            dataHoursEl.textContent = deltatime.hours;
-            dataMinutesEl.textContent = deltatime.minutes;
-           dataSecondsEl.textContent = deltatime.seconds;
+            // const deltatime = convertMs(ms)
+            dataDaysEl.textContent = convertMs(ms).days;
+            dataHoursEl.textContent = convertMs(ms).hours;
+            dataMinutesEl.textContent = convertMs(ms).minutes;
+           dataSecondsEl.textContent = convertMs(ms).seconds;
            dataSecondsEl.style.color = getRandomHexColor();
         },1000)      
         } 
     };
    },
+   
 };
-
 
 const fp = flatpickr(timeInput, options);
 
@@ -75,6 +69,5 @@ function convertMs(ms) {
 }
 
 
-// BackgroundAnimation
-
-
+// For BackgroundAnimation add class
+bodyEl.classList.add("bg-animation")
