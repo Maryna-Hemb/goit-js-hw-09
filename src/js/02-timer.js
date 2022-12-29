@@ -29,7 +29,6 @@ const options = {
        function onTimerCount(){
          setInterval(()=>{const ms = selectedDates[0] - Date.now();
             if(ms < 0){return}
-            // const deltatime = convertMs(ms)
             dataDaysEl.textContent = convertMs(ms).days;
             dataHoursEl.textContent = convertMs(ms).hours;
             dataMinutesEl.textContent = convertMs(ms).minutes;
