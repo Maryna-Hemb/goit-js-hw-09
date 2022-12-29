@@ -1,7 +1,12 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
-import { getRandomHexColor } from "./01-color-switcher"
+// import { getRandomHexColor } from "./01-color-switcher"
+
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  }
+  
 
 const bodyEl = document.querySelector("body");
 const timeInput = document.querySelector("#datetime-picker");
@@ -70,4 +75,4 @@ function convertMs(ms) {
 
 // For BackgroundAnimation add class
 bodyEl.classList.add("bg-animation")
-bodyEl.style.backgroundColor = "#385353"
+// bodyEl.style.backgroundColor = "#385353"
